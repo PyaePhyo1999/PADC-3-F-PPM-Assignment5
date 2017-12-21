@@ -5,33 +5,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 
 import com.pyaephyomaung.padcmyanmar.movieshelf.Delegate.MoviesActionDelegate;
 import com.pyaephyomaung.padcmyanmar.movieshelf.R;
+import com.pyaephyomaung.padcmyanmar.movieshelf.viewholders.GenreViewHolder;
 import com.pyaephyomaung.padcmyanmar.movieshelf.viewholders.MovieItemsViewHolder;
 
-import java.util.zip.Inflater;
-
 /**
- * Created by V3-575G on 09-12-2017.
+ * Created by V3-575G on 21-12-2017.
  */
 
-public class MoviesAdapter extends RecyclerView.Adapter {
-    public MoviesActionDelegate mMoviesActionDelegate;
-    public  MoviesAdapter(MoviesActionDelegate moviesActionDelegate){
-        mMoviesActionDelegate = moviesActionDelegate;
-    }
-
+public class MovieGenreAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        LayoutInflater inflater =  LayoutInflater.from(context);
-        View MovieItemsView = inflater.inflate(R.layout.item_movies,parent,false);
-        MovieItemsViewHolder MovieItemViewHolder = new MovieItemsViewHolder(MovieItemsView,mMoviesActionDelegate);
-        return MovieItemViewHolder;
-
-
-
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View moviegenre = inflater.inflate(R.layout.item_movie_genre,parent,false);
+        GenreViewHolder genreViewHolder = new GenreViewHolder(moviegenre);
+        return genreViewHolder;
     }
 
     @Override
@@ -41,6 +33,6 @@ public class MoviesAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 15;
+        return 10;
     }
 }

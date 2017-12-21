@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.pyaephyomaung.padcmyanmar.movieshelf.Delegate.MoviesActionDelegate;
 import com.pyaephyomaung.padcmyanmar.movieshelf.R;
 import com.pyaephyomaung.padcmyanmar.movieshelf.viewholders.MovieDetailItemsViewHolder;
 
@@ -14,6 +15,7 @@ import com.pyaephyomaung.padcmyanmar.movieshelf.viewholders.MovieDetailItemsView
  */
 
 public class TrailersAdapter extends RecyclerView.Adapter {
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();

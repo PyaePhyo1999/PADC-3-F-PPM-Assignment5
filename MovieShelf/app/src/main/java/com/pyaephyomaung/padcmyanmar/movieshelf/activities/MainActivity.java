@@ -1,8 +1,10 @@
 package com.pyaephyomaung.padcmyanmar.movieshelf.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,13 +13,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.pyaephyomaung.padcmyanmar.movieshelf.Delegate.MoviesActionDelegate;
 import com.pyaephyomaung.padcmyanmar.movieshelf.R;
 import com.pyaephyomaung.padcmyanmar.movieshelf.adapters.MoviesAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MoviesActionDelegate {
 
     @BindView(R.id.rv_movie) RecyclerView rvMovie;
     @BindView(R.id.toolbar) Toolbar toolbar;
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        moviesAdapter = new MoviesAdapter();
+        moviesAdapter = new MoviesAdapter(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
         rvMovie.setLayoutManager(linearLayoutManager);
         rvMovie.setAdapter(moviesAdapter);
@@ -67,5 +70,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onTapItemView() {
+        Intent intent = new Intent(getApplicationContext(),MovieDetailsActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onTapMovieOverView() {
+
     }
 }
